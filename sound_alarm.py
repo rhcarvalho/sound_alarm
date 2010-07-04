@@ -149,6 +149,85 @@ class PhoneRingBeepSound(BaseBeepSound):
             self.beeper.add_sleep(1000)
 
 
+
+# Symfonia
+
+class PolishSymfoniaBeepSound(BaseBeepSound):
+    '''Epi-zart'''
+    tones = {
+        'A': 440,
+        'A#': 466,
+        'B': 493,
+        'C': 523,
+        'C#': 554,
+        'D': 587,
+        'D#': 622,
+        'E': 659,
+        'F': 698,
+        'F#': 739,
+        'G': 783,
+        'G#': 830,
+        'a': 880,
+        'a#': 932,
+        'b': 987,
+        'c': 1046,
+        'c#': 1108,
+        'd': 1174,
+        'd#': 1244,
+        'e': 1318,
+        'f': 1396,
+        'f#': 1479,
+        'g': 1567,
+        'g#': 1661
+    }
+
+    def __init__(self, beeper_class=Beeper):
+        BaseBeepSound.__init__(self, beeper_class)
+
+        for tone in ('b','b','c','d','d','c','b','a','G','G','a','b'):
+            self.beeper.add_beep(self.tones[tone], 300)
+
+        self.beeper.add_beep(self.tones['b'], 500)
+        self.beeper.add_beep(self.tones['a'], 150)
+        self.beeper.add_beep(self.tones['a'], 500)
+
+        for tone in ('b','b','c','d','d','c','b','a','G','G','a','b'):
+            self.beeper.add_beep(self.tones[tone], 300)
+
+        self.beeper.add_beep(self.tones['a'], 500)
+        self.beeper.add_beep(self.tones['G'], 150)
+        self.beeper.add_beep(self.tones['G'], 500)
+        
+        self.beeper.add_beep(self.tones['a'], 300)
+        self.beeper.add_beep(self.tones['a'], 300)
+        self.beeper.add_beep(self.tones['b'], 300)
+        self.beeper.add_beep(self.tones['G'], 300)
+        self.beeper.add_beep(self.tones['a'], 300)
+        self.beeper.add_beep(self.tones['b'], 150)
+        self.beeper.add_beep(self.tones['c'], 150)
+        self.beeper.add_beep(self.tones['b'], 300)
+        self.beeper.add_beep(self.tones['G'], 300)
+        self.beeper.add_beep(self.tones['a'], 300)
+        self.beeper.add_beep(self.tones['b'], 150)
+        self.beeper.add_beep(self.tones['c'], 150)
+        self.beeper.add_beep(self.tones['b'], 300)
+        self.beeper.add_beep(self.tones['a'], 300)
+        self.beeper.add_beep(self.tones['G'], 300)
+        self.beeper.add_beep(self.tones['a'], 300)
+        self.beeper.add_beep(self.tones['D'], 500)
+        
+        self.beeper.add_beep(self.tones['b'], 500)
+        for tone in ('b','c','d','d','c','b','a','G','G','a','b'):
+            self.beeper.add_beep(self.tones[tone], 300)
+
+        self.beeper.add_beep(self.tones['a'], 500)
+        self.beeper.add_beep(self.tones['G'], 150)
+        self.beeper.add_beep(self.tones['G'], 500)
+
+
+
+
+
 def play_sound(sound_class):
     for klass in BaseBeepSound.__subclasses__():
         if klass.__name__.startswith(sound_class):
